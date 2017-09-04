@@ -82,7 +82,8 @@ var articles = {
         </div>
     </body>    
 </html>
-`;
+`
+;
 
     return htmlTemplate;
     }
