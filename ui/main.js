@@ -19,13 +19,25 @@ var counter = 0;
 
 button.onclick = function (){
 
-//Make a request to the counter endpoint
+//Create a request to the counter endpoint
+
+var request = new XMLHttpRequest();
 
 //capture the response and store it in a variable
+    request.onreadystatechange = function(){
+    if(request.readystate === XMLHttpRequest.DONE){
+        //Take an action
+    if(request.status === 200)    {
+        var counter = request.responseText;
+        var span = document.getElementById('count');
+        span.innerHTML = counter.toString();
+    }
+    }
+     //Not yet done---else part
+        
+    };
 
-// Render the variable in the correct span
-    counter = counter+1;
-    var span = document.getElementById('count');
-    span.innerHTML = counter.toString();
-    
+// Make the request
+    request.open('GET','http://sujathaprabhubh12.imad.hasura-app.io/counter', true);
+    request.send(null);
 };
