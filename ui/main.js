@@ -41,3 +41,23 @@ var request = new XMLHttpRequest();
     request.open('GET','http://sujathaprabhubh12.imad.hasura-app.io/counter', true);
     request.send(null);
 };
+
+// Submit name
+
+var nameInput = document.getElementById('name');
+var name = nameInput.value;
+var submit = document.getElementById('submit_btn');
+submit.onclick = function(){
+    //make a request to the server and send the name
+    
+    //Capture a list of names and render it as a list
+    var names=['name1','name2','name3','name4'];
+    var list = '';
+    for(var i = 0; i< name.length; i++){
+        list =='<li>' + names[i] +'<li>';
+    }
+    var ol = document.getElementById('namelist');
+    ol.innerHTML = list;
+    
+};
+
